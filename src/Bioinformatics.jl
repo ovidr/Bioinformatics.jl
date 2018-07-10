@@ -1,8 +1,10 @@
 module Bioinformatics
-export verifyDna, readStringFromFile, countBases, transcribeDna
+export verifyDna, readStringFromFile, countBases, transcribeDna, reverseComplement
 
 const dnaAlphabet = ['A', 'C', 'G', 'T']
 const rnaAlphabet = ['A', 'C', 'G', 'U']
+
+const dnaComplements = Dict('A' => 'T', 'T' => 'A', 'C' => 'G', 'G' => 'C')
 
 function verifyDna(dna::String)
     if all(base -> base in dnaAlphabet, dna)
@@ -50,6 +52,12 @@ function transcribeDna(dna::String)
         end
     end
     return rna
+end
+
+function reverseComplement(dna::String)
+    reversed = reverse(dna)
+    reverseComplement = join([dnaComplements[c] for c in reversed])
+    return reverseComplement
 end
 
 end

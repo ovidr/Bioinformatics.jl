@@ -10,3 +10,4 @@ end
 @test_throws ErrorException verifyDna("ACFY") == false
 @test countBases("AAGCCCT") == (2, 3, 1, 1)
 @test transcribeDna("ACGT") == "ACGU"
+@test reverseComplement("AAAACCCGGT") == "ACCGGGTTTT"
