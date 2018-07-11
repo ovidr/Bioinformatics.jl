@@ -1,5 +1,5 @@
 module Bioinformatics
-export verifyDna, readStringFromFile, countBases, transcribeDna, reverseComplement
+export verifyDna, readStringFromFile, countBases, transcribeDna, reverseComplement, readFASTA, gcContent
 
 const dnaAlphabet = ['A', 'C', 'G', 'T']
 const rnaAlphabet = ['A', 'C', 'G', 'U']
@@ -58,6 +58,53 @@ function reverseComplement(dna::String)
     reversed = reverse(dna)
     reverseComplement = join([dnaComplements[c] for c in reversed])
     return reverseComplement
+end
+
+function readFASTA(filename::String)
+    data = Dict()
+    lines = open(filename) do f
+        readlines(f)
+    end
+    key = ""
+    val = ""
+    for i = 1:length(lines)
+        line = lines[i]
+        if startswith(line, '>')
+            key = match(r"([^>])+", line).match
+        else
+            val = string(val, line)
+            if i == length(lines)
+                data[key] = val
+                continue
+            end
+            nextLine = lines[i+1]
+            if startswith(nextLine, '>')
+                data[key] = val
+                key = ""
+                val = ""
+            end
+        end
+    end
+    return data
+end
+
+function gcContent(dna::String)
+    n = length(dna)
+    m = 0
+    for b in dna
+        if b == 'G' || b == 'C'
+            m += 1
+        end
+    end
+    return 100 * m / n
+end
+
+function gcContent(dna::Dict)
+    data = Dict()
+    for (k, v) in dna
+        data[k] = gcContent(v)
+    end
+    return data
 end
 
 end
