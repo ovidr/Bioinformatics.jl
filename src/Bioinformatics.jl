@@ -6,6 +6,11 @@ const rnaAlphabet = ['A', 'C', 'G', 'U']
 
 const dnaComplements = Dict('A' => 'T', 'T' => 'A', 'C' => 'G', 'G' => 'C')
 
+"""
+    verifyDna(dna::String)
+
+Verifies that the string contains only 'A', 'T', 'G', 'C' characters.
+"""
 function verifyDna(dna::String)
     if all(base -> base in dnaAlphabet, dna)
         return true
@@ -14,6 +19,11 @@ function verifyDna(dna::String)
     end
 end
 
+"""
+    readStringFromFile(filename::String)
+
+Loads a text file that contains a DNA/RNA string.
+"""
 function readStringFromFile(filename::String)
     s = open(filename) do f
         read(f, String)
@@ -21,6 +31,11 @@ function readStringFromFile(filename::String)
     return strip(s)
 end
 
+"""
+    countBases(dna::String)
+
+Counts the amount of each base in a DNA chain.
+"""
 function countBases(dna::String)
     countA = 0
     countC = 0
@@ -42,6 +57,11 @@ function countBases(dna::String)
     return countA, countC, countG, countT
 end
 
+"""
+    transcribeDna(dna::String)
+
+Transcibes a DNA string to RNA.
+"""
 function transcribeDna(dna::String)
     rna = ""
     for c in dna
@@ -54,12 +74,22 @@ function transcribeDna(dna::String)
     return rna
 end
 
+"""
+    reverseComplement(dna::String)
+
+Calculates a reverse complement of a DNA string.
+"""
 function reverseComplement(dna::String)
     reversed = reverse(dna)
     reverseComplement = join([dnaComplements[c] for c in reversed])
     return reverseComplement
 end
 
+"""
+    readFASTA(filename::String)
+
+Reads a FASTA formatted file.
+"""
 function readFASTA(filename::String)
     data = Dict()
     lines = open(filename) do f
@@ -88,6 +118,11 @@ function readFASTA(filename::String)
     return data
 end
 
+"""
+    gcContent(dna::String)
+
+Calculates G+C ratio.
+"""
 function gcContent(dna::String)
     n = length(dna)
     m = 0
@@ -99,6 +134,11 @@ function gcContent(dna::String)
     return 100 * m / n
 end
 
+"""
+    gcContent(dna::String)
+
+Calculates G+C ratio.
+"""
 function gcContent(dna::Dict)
     data = Dict()
     for (k, v) in dna
