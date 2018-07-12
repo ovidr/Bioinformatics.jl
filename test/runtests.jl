@@ -7,8 +7,10 @@ else
 end
 
 @test verifyDna("ACGT") == true
-@test_throws ErrorException verifyDna("ACFY") == false
+@test_throws ErrorException verifyDna("ACFY")
 @test countBases("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC") == (20, 12, 17, 21)
+@test_throws ErrorException countBases("AGTGCFF")
 @test transcribeDna("GATGGAACTTGACTACGTAAATT") == "GAUGGAACUUGACUACGUAAAUU"
 @test reverseComplement("AAAACCCGGT") == "ACCGGGTTTT"
 @test round(gcContent("CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT"), 2) == 60.92
+@test hammingDist("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT") == 7 

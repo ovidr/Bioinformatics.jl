@@ -1,5 +1,5 @@
 module Bioinformatics
-export verifyDna, readStringFromFile, countBases, transcribeDna, reverseComplement, readFASTA, gcContent
+export verifyDna, readStringFromFile, countBases, transcribeDna, reverseComplement, readFASTA, gcContent, hammingDist
 
 const dnaAlphabet = ['A', 'C', 'G', 'T']
 const rnaAlphabet = ['A', 'C', 'G', 'U']
@@ -147,4 +147,20 @@ function gcContent(dna::Dict)
     return data
 end
 
+end
+
+"""
+    hammingDist(s::String, t::String)
+
+Calculates Hamming distance between two strings.
+"""
+function hammingDist(s::String, t::String)
+    @assert length(s) == length(t)
+    dist = 0
+    for i = 1:length(s)
+        if s[i] != t[i]
+            dist += 1
+        end
+    end
+    return dist
 end
