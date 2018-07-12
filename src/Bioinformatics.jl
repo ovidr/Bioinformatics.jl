@@ -1,5 +1,12 @@
 module Bioinformatics
-export verifyDna, readStringFromFile, countBases, transcribeDna, reverseComplement, readFASTA, gcContent, hammingDist
+export verifyDna,
+       readStringFromFile,
+       countBases,
+       transcribeDna,
+       reverseComplement,
+       readFASTA,
+       gcContent,
+       hammingDist
 
 const dnaAlphabet = ['A', 'C', 'G', 'T']
 const rnaAlphabet = ['A', 'C', 'G', 'U']
