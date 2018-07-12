@@ -147,8 +147,6 @@ function gcContent(dna::Dict)
     return data
 end
 
-end
-
 """
     hammingDist(s::String, t::String)
 
@@ -163,4 +161,6 @@ function hammingDist(s::String, t::String)
         end
     end
     return dist
+end
+
 end
