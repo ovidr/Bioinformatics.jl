@@ -97,7 +97,7 @@ function countBases(dna::String)
 end
 
 """
-    transcribeDna(dna::String)
+    transcribeDnaToRna(dna::String)
 
 Transcibes a DNA string to RNA.
 """
