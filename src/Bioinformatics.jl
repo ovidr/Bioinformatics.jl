@@ -21,7 +21,7 @@ const proteinAlphabet = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
                          'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']
 
 const rnaCodonTable = Dict("UUU" => 'F',      "CUU" => 'L',      "AUU" => 'I',
-                           "GUU" => 'V',	  "UUC" => 'F',      "CUC" => 'L',
+                           "GUU" => 'V',	    "UUC" => 'F',      "CUC" => 'L',
                            "AUC" => 'I',      "GUC" => 'V',      "UUA" => 'L',
                            "CUA" => 'L',      "AUA" => 'I',      "GUA" => 'V',
                            "UUG" => 'L',      "CUG" => 'L',      "AUG" => 'M',
