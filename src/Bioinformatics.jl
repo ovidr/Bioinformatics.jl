@@ -2,7 +2,8 @@ module Bioinformatics
 export verifyDna,
        readStringFromFile,
        countBases,
-       transcribeDna,
+       transcribeDnaToRna,
+       transcribeDnaToMRna,
        reverseComplement,
        readFASTA,
        gcContent,
@@ -16,6 +17,7 @@ const dnaAlphabet = ['A', 'C', 'G', 'T']
 const rnaAlphabet = ['A', 'C', 'G', 'U']
 
 const dnaComplements = Dict('A' => 'T', 'T' => 'A', 'C' => 'G', 'G' => 'C')
+const rnaComplements = Dict('A' => 'U', 'U' => 'A', 'C' => 'G', 'G' => 'C')
 
 const proteinAlphabet = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
                          'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']
@@ -99,7 +101,7 @@ end
 
 Transcibes a DNA string to RNA.
 """
-function transcribeDna(dna::String)
+function transcribeDnaToRna(dna::String)
     rna = ""
     for c in dna
         if c == 'T'
@@ -109,6 +111,20 @@ function transcribeDna(dna::String)
         end
     end
     return rna
+end
+
+"""
+    transcribeDnaToMRna(dna::String)
+
+Transcibes a DNA string to mRNA.
+"""
+function transcribeDnaToMRna(dna::String)
+    rna = transcribeDnaToRna(dna)
+    mRNA = ""
+    for b in rna
+        mRNA = string(mRNA, rnaComplements[b])
+    end
+    return mRNA
 end
 
 """
