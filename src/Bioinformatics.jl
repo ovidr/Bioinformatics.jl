@@ -12,7 +12,8 @@ export verifyDna,
        findMotif,
        profileMatrix,
        consensusString,
-       proteinMass
+       proteinMass,
+       longestCommonSubstring
 
 const dnaAlphabet = ['A', 'C', 'G', 'T']
 const rnaAlphabet = ['A', 'C', 'G', 'U']
@@ -322,6 +323,38 @@ function proteinMass(protein::String)
         mass += proteinMassTable[aa]
     end
     return mass
+end
+
+"""
+    longestCommonSubstring(dna::Dict)
+
+Calculates longest common substring of the collection.
+"""
+function longestCommonSubstring(dna::Dict)
+    v = collect(values(dna))
+    sort!(v, by=length)
+    motif = ""
+    shortestStr = v[1]
+    otherStr = v[2:end]
+    len = length(shortestStr)
+    for i = 1:len
+        for j = i:len
+            m = shortestStr[i:j]
+            found = false
+            for dna in otherStr
+                if contains(dna, m)
+                    found = true
+                else
+                    found = false
+                    break
+                end
+            end
+            if found & (length(m) > length(motif))
+                    motif = m
+            end
+        end
+    end
+    return motif
 end
 
 end
