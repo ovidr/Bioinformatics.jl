@@ -31,7 +31,9 @@ end
                        [1.0  1.0  6.0  3.0  0.0  1.0  0.0  0.0]
                        [1.0  5.0  0.0  0.0  0.0  1.0  1.0  6.0]]) == "ATGCAACT"
 @test round(proteinMass("SKADYEK"), 2) == 821.39
-@test longestCommonSubstring(Dict("Rosalind_1" => "AATCCACT", 
+@test longestCommonSubstring(Dict("Rosalind_1" => "AATCCACT",
                                   "Rosalind_2" => "GGCAACT",
                                   "Rosalind_3" => "AATCT",
                                   "Rosalind_4" => "AAAACC")) == "AA"
+@test countBases(readStringFromFile(joinpath(@__DIR__, "data", "rosalind_dna.txt"))) == (201, 182, 223, 195)
+@test round(gcContent(readFASTA(joinpath(@__DIR__, "data", "rosalind_gc.txt")))["Rosalind_6462"], 2) == 49.72
