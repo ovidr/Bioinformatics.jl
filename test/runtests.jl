@@ -35,5 +35,5 @@ end
                                   "Rosalind_2" => "GGCAACT",
                                   "Rosalind_3" => "AATCT",
                                   "Rosalind_4" => "AAAACC")) == "AA"
-@test typeof(readStringFromFile(joinpath(@__DIR__, "data", "rosalind_dna.txt"))) == String
-@test typeof(readFASTA(joinpath(@__DIR__, "data", "rosalind_gc.txt"))) == Dict{Any,Any}
+@inferred readStringFromFile(joinpath(@__DIR__, "data", "rosalind_dna.txt"))
+@inferred readFASTA(joinpath(@__DIR__, "data", "rosalind_gc.txt"))
