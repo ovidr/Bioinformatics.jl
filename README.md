@@ -5,7 +5,7 @@
 
 ## Motivation
 
-I started some bioinformatics courses on Coursera and decided to helper functions for it and http://rosalind.info problems.
+I started some bioinformatics courses on Coursera and decided to write helper functions for it and http://rosalind.info problems.
 
 ## Contribute
 
