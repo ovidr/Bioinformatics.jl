@@ -3,7 +3,7 @@ os:
   - osx
   - linux
 julia:
-  - 0.6
+  - 0.6.2
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'Pkg.clone(pwd()); Pkg.build("Bioinformatics"); Pkg.test("Bioinformatics"; coverage=true)';
