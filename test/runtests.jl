@@ -53,3 +53,8 @@ end
              "Rosalind_2" => "GGCAACT",
              "Rosalind_3" => "AATCT",
              "Rosalind_4" => "AAAACC")) == "AA"
+
+@test Bioinformatics.gcContent(
+        Bioinformatics.readFASTA(
+            joinpath(@__DIR__, "data", "rosalind_gc.txt")))["Rosalind_1093"] ==
+            48.46560846560847
