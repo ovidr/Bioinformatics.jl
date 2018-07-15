@@ -54,6 +54,11 @@ end
              "Rosalind_3" => "AATCT",
              "Rosalind_4" => "AAAACC")) == "AA"
 
+@test Bioinformatics.countBases(
+        Bioinformatics.readStringFromFile(
+            joinpath(@__DIR__, "data", "rosalind_dna.txt"))) ==
+            (201, 182, 223, 195)
+
 @test Bioinformatics.gcContent(
         Bioinformatics.readFASTA(
             joinpath(@__DIR__, "data", "rosalind_gc.txt")))["Rosalind_1093"] ==

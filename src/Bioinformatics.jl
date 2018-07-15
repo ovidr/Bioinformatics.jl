@@ -80,7 +80,7 @@ function readStringFromFile(filename::String)
     s = open(filename) do f
         read(f, String)
     end
-    return strip(s)
+    return String(strip(s))
 end
 
 """
