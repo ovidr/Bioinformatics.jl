@@ -63,3 +63,13 @@ end
         Bioinformatics.readFASTA(
             joinpath(@__DIR__, "data", "rosalind_gc.txt")))["Rosalind_1093"] ==
             48.46560846560847
+
+@test Bioinformatics.reversePalindrome("TCAATGCATGCGGGTCTATATGCAT") == 
+        Dict(  7  => "CATG",
+               4  => "ATGCAT",
+               20 => "ATGCAT",
+               17 => "TATA",
+               5  => "TGCA",
+               21 => "TGCA",
+               6  => "GCATGC",
+               18 => "ATAT")

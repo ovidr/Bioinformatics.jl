@@ -13,7 +13,8 @@ export verifyDna,
        profileMatrix,
        consensusString,
        proteinMass,
-       longestCommonSubstring
+       longestCommonSubstring,
+       reversePalindrome
 
 const dnaAlphabet = ['A', 'C', 'G', 'T']
 const rnaAlphabet = ['A', 'C', 'G', 'U']
@@ -356,5 +357,30 @@ function longestCommonSubstring(dna::Dict)
     end
     return motif
 end
+
+"""
+    reversePalindrome(dna::String)
+
+Finds reverse palindrome substrings of a DNA string.
+"""
+function reversePalindrome(dna::String)
+    res = Dict()
+    for i = 1:length(dna)
+        for j = 4:length(dna)
+            if i + j > length(dna) + 1
+                continue
+            else
+                subStr = dna[i:i+j-1]
+                lenSubStr = length(subStr)
+                revComp = reverseComplement(subStr)
+                if subStr == revComp
+                    res[i] = subStr
+                end
+            end
+        end
+    end
+    return res
+end
+
 
 end
