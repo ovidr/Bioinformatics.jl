@@ -382,5 +382,4 @@ function reversePalindrome(dna::String)
     return res
 end
 
-
 end
