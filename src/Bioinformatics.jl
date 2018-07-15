@@ -297,7 +297,7 @@ function consensusString(profileMatrix::Array)
   consensus = ""
   for i = 1:colSize
     b = ' '
-    ind = indmax(profileMatrix[:, i])
+    ind = argmax(profileMatrix[:, i])
     if ind == 1
       b = 'A'
     elseif ind == 2
@@ -342,7 +342,7 @@ function longestCommonSubstring(dna::Dict)
             m = shortestStr[i:j]
             found = false
             for dna in otherStr
-                if contains(dna, m)
+                if occursin(m, dna)
                     found = true
                 else
                     found = false
