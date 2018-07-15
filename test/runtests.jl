@@ -1,4 +1,5 @@
 include("../src/Bioinformatics.jl")
+using Test
 
 @test Bioinformatics.verifyDna("ACGT") == true
 @test_throws ErrorException Bioinformatics.verifyDna("ACFY")
