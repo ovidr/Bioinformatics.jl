@@ -16,6 +16,9 @@ include("Bioinformatics.jl")
 ```
 and you're ready to use!
 
+## Available Functions
+
+You can see list of available functions from [here](https://github.com/mrtkp9993/Bioinformatics.jl/blob/master/Functions.md).
 
 ## Contribute
 
