@@ -3,7 +3,7 @@
 The following functions are imported upon `include("Bioinformatics.jl")`
 
 [`verifyDna(dna::String)`](https://github.com/mrtkp9993/Bioinformatics.jl/blob/master/src/Bioinformatics.jl#L62)
->Verifies that the string contains only 'A', 'T', 'G', 'C' characters
+> Verifies that the string contains only 'A', 'T', 'G', 'C' characters
 
 [`readStringFromFile(filename::String)`](https://github.com/mrtkp9993/Bioinformatics.jl/blob/master/src/Bioinformatics.jl#L75)
 > Loads a text file that contains a DNA/RNA string
